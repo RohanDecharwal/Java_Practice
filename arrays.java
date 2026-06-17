@@ -1,19 +1,25 @@
 import java.util.*;
 public class arrays{
-    
-    public static void update(int marks []){
-        for(int i = 0; i<marks.length; i++){
-            marks[i] = marks[i] + 1;
+
+    public static int linearSearch(int numbers[], int key){
+
+        for(int i = 0; i<numbers.length; i++){
+            if(numbers[i]==key){
+                return i;
+            }
         }
+        return -1;
     }
-
     public static void main(String[] args){
-        int marks[] = {99, 99, 99};
-        update(marks);
-
-        for(int i = 0; i<marks.length; i++){
-            System.out.print(marks[i] + " ");
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a key to find index: ");
+        int key = sc.nextInt();
+        int numbers[] = {2, 4, 6, 8, 10, 12, 14, 16};
+        int index = linearSearch(numbers, key);
+        if(index==-1){
+            System.out.println("Error: enter a valid key!");
+        }else{
+            System.out.println("The key is at index: " + index);
         }
-        System.out.println();
     }
 }
